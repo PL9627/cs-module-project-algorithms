@@ -4,9 +4,25 @@ Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
     # Your code here
+    n = len(arr)
 
-    pass
+    if n < 2:
+        return []
 
+    prodArr = [0] * (n)
+    product = 1
+
+    for i in range(n):
+        prodArr[i] = product
+        product *= arr[i]
+
+    product = 1
+
+    for i in reversed(range(n)):
+        prodArr[i] *= product
+        product *= arr[i]
+
+    return prodArr
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
