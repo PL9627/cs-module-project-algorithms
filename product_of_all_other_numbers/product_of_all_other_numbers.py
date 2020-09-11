@@ -2,9 +2,11 @@
 Input: a List of integers
 Returns: a List of integers
 '''
+#import numpy as np
+
 def product_of_all_other_numbers(arr):
     # Your code here
-    n = len(arr)
+    """ n = len(arr)
 
     if n < 2:
         return []
@@ -22,7 +24,21 @@ def product_of_all_other_numbers(arr):
         prodArr[i] *= product
         product *= arr[i]
 
-    return prodArr
+    return prodArr """
+
+    """ prodArr = np.array(arr)
+
+    return prodArr.prod() / arr """
+
+    new = []
+
+    for item in arr:
+        temp = 1
+        for i in range(0, len(arr)):
+            if item != arr[i]:
+                temp *= arr[i]
+        new.append(temp)
+    return new
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
